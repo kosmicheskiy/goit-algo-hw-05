@@ -1,8 +1,8 @@
 import timeit
 
-raw = "Цей алгоритм часто використовується в текстових редакторах та системах пошуку для ефективного знаходження підрядка в тексті."
-pattern = "алг"
-pattern_notExist = "алгккк"
+raw = "Цей алгоритм часто використовується в текстових редакторах та системах пошуку для ефективного знаходження підрядка в Цей алгоритм часто використовується в текстових редакторах та системах пошуку для ефективного знаходження підрядка в Цей алгоритм часто використовується в текстових редакторах та системах пошуку для ефективного знаходження підрядка в тексті."
+pattern = "ті"
+pattern_notExist = "алгсапвапккк"
 
 def compute_lps(pattern):
     lps = [0] * len(pattern)
@@ -45,11 +45,9 @@ def kmp_search(main_string, pattern):
 
     return -1 
 
-print("Calculation of time used by Knuth–Morris–Pratt algorithm for existint pattern")
-print(timeit.timeit(lambda: kmp_search(raw, pattern), number=20))
 
-print("Calculation of time used by Knuth–Morris–Pratt algorithm for non existint pattern")
-print(timeit.timeit(lambda: kmp_search(raw, pattern_notExist), number=20))
+print(f"Calculation of time used by Knuth–Morris–Pratt algorithm for existint pattern {timeit.timeit(lambda: kmp_search(raw, pattern), number=20)}")
+print(f"Calculation of time used by Knuth–Morris–Pratt algorithm for non existint pattern {timeit.timeit(lambda: kmp_search(raw, pattern_notExist), number=20)}") 
 
 
 def build_shift_table(pattern):
@@ -79,12 +77,8 @@ def boyer_moore_search(text, pattern):
 
     return -1
 
-
-print("Calculation of time used by Boyer–Moore string-search algorithm for existint pattern")
-print(timeit.timeit(lambda: boyer_moore_search(raw, pattern), number=20))
-
-print("Calculation of time used by Boyer–Moore string-search algorithm non for existint pattern")
-print(timeit.timeit(lambda: boyer_moore_search(raw, pattern_notExist), number=20))
+print(f"Calculation of time used by Boyer–Moore string-search algorithm for existint pattern {timeit.timeit(lambda: boyer_moore_search(raw, pattern), number=20)}")
+print(f"Calculation of time used by Boyer–Moore string-search algorithm non for existint pattern {timeit.timeit(lambda: boyer_moore_search(raw, pattern_notExist), number=20)}")
 
 def polynomial_hash(s, base=256, modulus=101):
     """
@@ -127,9 +121,5 @@ def rabin_karp_search(main_string, substring):
 
     return -1
 
-
-print("Calculation of time used by Rabin–Karp algorithm for existint pattern")
-print(timeit.timeit(lambda: rabin_karp_search(raw, pattern), number=20))
-
-print("Calculation of time used by Rabin–Karp algorithm for non existint pattern")
-print(timeit.timeit(lambda: rabin_karp_search(raw, pattern_notExist), number=20))
+print(f"Calculation of time used by Rabin–Karp algorithm for existint pattern {timeit.timeit(lambda: rabin_karp_search(raw, pattern), number=20)}")
+print(f"Calculation of time used by Rabin–Karp algorithm for non existint pattern {timeit.timeit(lambda: rabin_karp_search(raw, pattern_notExist), number=20)}")
